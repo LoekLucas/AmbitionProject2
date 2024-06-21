@@ -72,6 +72,12 @@ public class GravitySwitchingMovement : MonoBehaviour
             airJumps = airJumpsMax;
         }
 
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            transform.position = new Vector3(-48.5f, 0.800000012f, 0);
+            SetGravity(GravityDirection.Down);
+        }
+
         // Movement controls
         if (canMove)
         {
@@ -100,7 +106,7 @@ public class GravitySwitchingMovement : MonoBehaviour
         }
 
         // Jumping
-        if (Input.GetKeyDown(KeyCode.W) && canMove)
+        if (Input.GetKeyDown(KeyCode.W) && canMove || Input.GetKeyDown(KeyCode.Space) && canMove)
         {
             if ((isGrounded && !isWallClinging) || (airJumps >= 1 && !isWallClinging))
             {
